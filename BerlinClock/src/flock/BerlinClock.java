@@ -7,7 +7,9 @@ public class BerlinClock {
 	static char[] bottomHourLamp = {'O','O','O','O'};
 	static char[] topMinuteLamp = {'O','O','O','O','O','O','O','O','O','O','O'};
 	static char[] bottomMinuteLamp = {'O','O','O','O'};
-	public static String representInBerlinClock(String time){
+	
+	public String representInBerlinClock(String time){
+		
 		if (!time.matches("\\d\\d:\\d\\d:\\d\\d")) {
             throw new IllegalArgumentException("Time must be in the format HH:MM:SS");
         }
@@ -15,31 +17,31 @@ public class BerlinClock {
 		int hour = Integer.parseInt(clock[0]);
 		int minute = Integer.parseInt(clock[1]);
 		int second = Integer.parseInt(clock[2]);
+		
 		StringBuilder sb = new StringBuilder();
+		
 		sb.append(calculateSecondsLamp(second)).append("\n");
 		sb.append(calculateTopLampHours(hour, topHourLamp)).append("\n");
 		sb.append(calculateBottomLampHours(hour, bottomHourLamp)).append("\n");
 		sb.append(calculateTopLampMinutes(minute, topMinuteLamp)).append("\n");
-		sb.append(calculateBottomLampHours(minute, bottomMinuteLamp)).append("\n");
-		// calculate hours on the clock
+		sb.append(calculateBottomLampMinutes(minute, bottomMinuteLamp)).append("\n");
+		
 		return sb.toString();
 		
 	}
 	private static String calculateTopLampHours(int hours,char[] thl){
-		if(hours<=23){
+		if(hours<=24){
 			int topLampCount = hours/5;
-			int bottomLampCount = hours%5;
 			for(int i=0;i<topLampCount;i++){
 				thl[i] = 'R';
 			}
 		}else{
 			return String.valueOf(thl);
 		}
-		System.out.println(thl.toString());
 		return String.valueOf(thl);
 	}
 	private static String calculateBottomLampHours(int hours,char[] bhl){
-		if(hours<=23){
+		if(hours<=24){
 			int bottomLampCount = hours%5;
 			for(int i=0;i<bottomLampCount;i++){
 				bhl[i] = 'R';
@@ -47,7 +49,6 @@ public class BerlinClock {
 		}else{
 			return String.valueOf(bhl);
 		}
-		System.out.println(bhl.toString());
 		return String.valueOf(bhl);
 	}
 	private static String calculateTopLampMinutes(int mins,char[] tml){
@@ -70,7 +71,7 @@ public class BerlinClock {
 			int bottomLampCount = mins%5;
 			for (int i = 0; i < bottomLampCount; i++) {
 				{
-	            	bml[i] = 'R';
+	            	bml[i] = 'Y';
 	            }
 	        }
 		}else{
@@ -88,6 +89,7 @@ public class BerlinClock {
 	}
 	public static void main(String[] args) {
 		BerlinClock bc = new BerlinClock();
-		
+		String time = bc.representInBerlinClock("14:25:09");
+		System.out.println(time);
 	}
 }
