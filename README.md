@@ -24,10 +24,10 @@ O = Off
 
 Solution:
 
-Used four character arrays to represent each column in the lamp. Initialized them to 'O' (Off status)
-Implemented String Manipulation techniques on the input String("hh:mm:ss")
-Added various methods in the BerlinClock class to calculate status of light on each lamp that returned String of color statuses
-Used StringBuilder class to append the results from the methods
+Used four character arrays to represent each column in the lamp. Initialized them to 'O' (Off status)<br />
+Implemented String Manipulation techniques on the input String("hh:mm:ss")<br />
+Added various methods in the BerlinClock class to calculate status of light on each lamp that returned String of color statuses<br />
+Used StringBuilder class to append the results from the methods<br />
 Returned the resultant String back.
 
 Example: 
