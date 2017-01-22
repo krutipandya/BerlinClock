@@ -40,7 +40,7 @@ YYRYYOOOOOO <br />
 OOOO
 
 
-Future Modifications:
+Future Modifications:<br />
 1. Abstraction<br />
   Create a Lamp Interface;<br />
 2. Polymorphism<br />
