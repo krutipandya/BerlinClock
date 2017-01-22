@@ -18,8 +18,8 @@ The other lamps are yellow. In the last row with 4 lamps every lamp represents 1
 
 The lamps are switched on from left to right.
 
-Y = Yellow
-R = Red
+Y = Yellow <br />
+R = Red <br />
 O = Off
 
 Solution:
@@ -31,12 +31,12 @@ Used StringBuilder class to append the results from the methods
 Returned the resultant String back.
 
 Example: 
-Input- "14:25:09"
-Output- 
-O
-RROO
-RRRR
-YYRYYOOOOOO
+Input- "14:25:09" <br />
+Output- <br />
+O <br />
+RROO <br />
+RRRR <br />
+YYRYYOOOOOO <br />
 OOOO
 
 
