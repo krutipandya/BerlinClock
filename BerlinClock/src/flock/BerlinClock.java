@@ -7,16 +7,26 @@ public class BerlinClock {
 	static char[] bottomHourLamp = {'O','O','O','O'};
 	static char[] topMinuteLamp = {'O','O','O','O','O','O','O','O','O','O','O'};
 	static char[] bottomMinuteLamp = {'O','O','O','O'};
+	char statusAlarm = 'O';
+	int hour;
+	int minute;
+	int second;
 	
-	public String representInBerlinClock(String time){
+	public BerlinClock(Time t){
+		hour = t.getHours();
+		minute = t.getMinutes();
+		second = t.getSeconds();
+	}
+	
+	public String representInBerlinClock(){
 		
-		if (!time.matches("\\d\\d:\\d\\d:\\d\\d")) {
+		/*if (!time.matches("\\d\\d:\\d\\d:\\d\\d")) {
             throw new IllegalArgumentException("Time must be in the format HH:MM:SS");
         }
 		String[] clock = time.split(":");
 		int hour = Integer.parseInt(clock[0]);
 		int minute = Integer.parseInt(clock[1]);
-		int second = Integer.parseInt(clock[2]);
+		int second = Integer.parseInt(clock[2]);*/
 		
 		StringBuilder sb = new StringBuilder();
 		
@@ -87,9 +97,17 @@ public class BerlinClock {
 		}
 		return "O";
 	}
+	private void setAlarm(int hours, int minutes, int seconds){
+		if(this.hour == hours && this.minute==minutes && this.second==seconds){
+			statusAlarm = 'N';
+		}
+		System.out.println("status of the alarm "+statusAlarm);
+	}
 	public static void main(String[] args) {
-		BerlinClock bc = new BerlinClock();
-		String time = bc.representInBerlinClock("14:25:09");
+		Time t = new Time(2, 0, 0);
+		BerlinClock bc = new BerlinClock(t);
+		String time = bc.representInBerlinClock();
+		bc.setAlarm(2, 0, 0);
 		System.out.println(time);
 	}
 }
